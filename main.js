@@ -45,30 +45,30 @@ const glados = async () => {
 //   })
 // }
 
-const notify = async (contents) => {
-  const token = process.env.NOTIFY;
-  if (!token || !contents) {
-    console.warn('Notify skipped: Missing NOTIFY environment variable or contents');
-    return;
-  }
+// const notify = async (contents) => {
+//   const token = process.env.NOTIFY;
+//   if (!token || !contents) {
+//     console.warn('Notify skipped: Missing NOTIFY environment variable or contents');
+//     return;
+//   }
 
-  try {
-    await fetch('https://www.pushplus.plus/send', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({
-        token,
-        title: contents[0],
-        content: contents.join('<br>'), // 使用 <br> 分隔多行文本
-        template: 'markdown', // 推送模板
-      }),
-      timeout: 10000, // 设置超时时间为 10 秒
-    });
-    console.log('Notification sent successfully');
-  } catch (error) {
-    console.error('Notify Error:', error);
-  }
-};
+//   try {
+//     await fetch('https://www.pushplus.plus/send', {
+//       method: 'POST',
+//       headers: { 'content-type': 'application/json' },
+//       body: JSON.stringify({
+//         token,
+//         title: contents[0],
+//         content: contents.join('<br>'), // 使用 <br> 分隔多行文本
+//         template: 'markdown', // 推送模板
+//       }),
+//       timeout: 10000, // 设置超时时间为 10 秒
+//     });
+//     console.log('Notification sent successfully');
+//   } catch (error) {
+//     console.error('Notify Error:', error);
+//   }
+// };
 
 const main = async () => {
   // await notify(await glados())
