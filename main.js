@@ -71,7 +71,8 @@ const notify = async (contents) => {
 };
 
 const main = async () => {
-  await notify(await glados())
+  // await notify(await glados())
+  await glados()
 }
 
 main()
